@@ -15,14 +15,27 @@ using System.Windows.Shapes;
 
 namespace WpfApp1
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+        }
+        private void Connect(string dictionary)
+        {
+            Uri uri = new Uri(dictionary, UriKind.Relative);
+            ResourceDictionary res = (ResourceDictionary)Application.LoadComponent(uri);
+            if (Application.Current.Resources.MergedDictionaries.Count > 1) Application.Current.Resources.MergedDictionaries.RemoveAt(Application.Current.Resources.MergedDictionaries.Count - 1);
+            Application.Current.Resources.MergedDictionaries.Add(res);
+        }
+        private void LightRB_OnChecked(object sender, RoutedEventArgs e)
+        {
+            Connect("Light.xaml");
+        }
+
+        private void DarkRB_OnChecked(object sender, RoutedEventArgs e)
+        {
+            Connect("Dark.xaml");
         }
     }
 }
