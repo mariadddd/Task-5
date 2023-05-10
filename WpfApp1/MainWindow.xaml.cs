@@ -37,5 +37,50 @@ namespace WpfApp1
         {
             Connect("Dark.xaml");
         }
+
+        private void OperandInput(object sender, RoutedEventArgs e)
+        {
+            //Button tmp = sender as Button;
+            //if (Operand.Text == "0")
+            //{
+            //    Operand.Text = tmp.Content.ToString();
+            //}
+            //else
+            //{
+            //    Operand.Text += tmp.Content.ToString();
+            //}
+
+            if (e.OriginalSource is Button button)
+            {
+                if (Operand.Text == "0")
+                {
+                    Operand.Text = button.Content.ToString();
+                }
+                else
+                {
+                    Operand.Text += button.Content.ToString();
+                }
+            }
+        }
+
+        private void SignInput(object sender, RoutedEventArgs e)
+        {
+             Operand.Text += ((Button)e.OriginalSource).Content.ToString();            
+        }
+
+        private void ResultInput(object sender, RoutedEventArgs e)
+        {
+            if (Operand.Text != "0") 
+            {
+                Operand.Text += " = ";
+                Result.Text = Operand.Text; 
+            }
+        }
+
+        private void ResultC(object sender, RoutedEventArgs e)
+        {
+            Operand.Text = "";
+            Result.Text = "";
+        }
     }
 }

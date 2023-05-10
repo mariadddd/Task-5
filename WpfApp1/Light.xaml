@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Style x:Key="TextBlock.Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlock.Base.Style}">
+    <Style x:Key="Window.Style" TargetType="Window">
         <Setter Property="Background" Value="White"/>
         <Setter Property="Foreground" Value="Black"/>
     </Style>

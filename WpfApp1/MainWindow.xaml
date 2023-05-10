@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Style="{DynamicResource Window.Style}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.5*"/>
@@ -27,27 +27,27 @@
         <RadioButton x:Name="LightRB" Content="Light mode" IsChecked="True" Checked="LightRB_OnChecked"/>
         <RadioButton Grid.Column="1" x:Name="DarkRB" Content="Dark mode" Checked="DarkRB_OnChecked"/>
 
-        <TextBlock Grid.Row="1" Text="3+5" Grid.ColumnSpan="4" Style="{DynamicResource TextBlock.Style}"/>
-        <TextBlock Grid.Row="2" Text="12" Grid.ColumnSpan="4" FontSize="25" Style="{DynamicResource TextBlock.Style}"/>
+        <TextBlock x:Name="Result" Grid.ColumnSpan="4" Style="{StaticResource TextBlock.Style}"/>
+        <TextBlock x:Name="Operand" Grid.Row="2" Text="0" Grid.ColumnSpan="4" FontSize="25" Style="{StaticResource TextBlock.Style}"/>
 
         <Button Grid.Row="3" Content="CE" Style="{StaticResource Button.Red.Style}"/>
-        <Button Grid.Row="3" Grid.Column="1" Content="C" Style="{StaticResource Button.Red.Style}"/>
-        <Button Grid.Row="3" Grid.Column="2" Content="&lt;" Style="{StaticResource Button.Red.Style}"/>
-        <Button Grid.Row="3" Grid.Column="3" Content="/" Style="{StaticResource Button.Red.Style}"/>
-        <Button Grid.Row="4" Content="7" Style="{StaticResource Button.Orange.Style}"/>
-        <Button Grid.Row="4" Grid.Column="1" Content="8" Style="{StaticResource Button.Orange.Style}"/>
-        <Button Grid.Row="4" Grid.Column="2" Content="9" Style="{StaticResource Button.Orange.Style}"/>
-        <Button Grid.Row="4" Grid.Column="3" Content="*" Style="{StaticResource Button.Orange.Style}"/>
-        <Button Grid.Row="5" Content="4" Style="{StaticResource Button.Yellow.Style}"/>
-        <Button Grid.Row="5" Grid.Column="1" Content="5" Style="{StaticResource Button.Yellow.Style}"/>
-        <Button Grid.Row="5" Grid.Column="2" Content="6" Style="{StaticResource Button.Yellow.Style}"/>
-        <Button Grid.Row="5" Grid.Column="3" Content="-" Style="{StaticResource Button.Yellow.Style}"/>
-        <Button Grid.Row="6" Content="1" Style="{StaticResource Button.Green.Style}"/>
-        <Button Grid.Row="6" Grid.Column="1" Content="2" Style="{StaticResource Button.Green.Style}"/>
-        <Button Grid.Row="6" Grid.Column="2" Content="3" Style="{StaticResource Button.Green.Style}"/>
-        <Button Grid.Row="6" Grid.Column="3" Content="+" Style="{StaticResource Button.Green.Style}"/>
-        <Button Grid.Row="7" Content="." Style="{StaticResource Button.Blue.Style}"/>
-        <Button Grid.Row="7" Grid.Column="1" Content="0" Style="{StaticResource Button.Blue.Style}"/>
-        <Button Grid.Row="7" Grid.Column="2" Content="=" Grid.ColumnSpan="2" Style="{StaticResource Button.Blue.Style}"/>
+        <Button Grid.Row="3" Grid.Column="1" Content="C" Style="{StaticResource Button.Red.Style}" Click="ResultC"/>
+        <Button Grid.Row="3" Grid.Column="2" Content="&lt;" Style="{StaticResource Button.Red.Style}" Click ="SignInput"/>
+        <Button Grid.Row="3" Grid.Column="3" Content="/" Style="{StaticResource Button.Red.Style}" Click ="SignInput"/>
+        <Button Grid.Row="4" Content="7" Style="{StaticResource Button.Orange.Style}" Click="OperandInput"/>
+        <Button Grid.Row="4" Grid.Column="1" Content="8" Style="{StaticResource Button.Orange.Style}" Click="OperandInput"/>
+        <Button Grid.Row="4" Grid.Column="2" Content="9" Style="{StaticResource Button.Orange.Style}" Click="OperandInput"/>
+        <Button Grid.Row="4" Grid.Column="3" Content="*" Style="{StaticResource Button.Orange.Style}" Click ="SignInput"/>
+        <Button Grid.Row="5" Content="4" Style="{StaticResource Button.Yellow.Style}" Click="OperandInput"/>
+        <Button Grid.Row="5" Grid.Column="1" Content="5" Style="{StaticResource Button.Yellow.Style}" Click="OperandInput"/>
+        <Button Grid.Row="5" Grid.Column="2" Content="6" Style="{StaticResource Button.Yellow.Style}" Click="OperandInput"/>
+        <Button Grid.Row="5" Grid.Column="3" Content="-" Style="{StaticResource Button.Yellow.Style}" Click ="SignInput"/>
+        <Button Grid.Row="6" Content="1" Style="{StaticResource Button.Green.Style}" Click="OperandInput" />
+        <Button Grid.Row="6" Grid.Column="1" Content="2" Style="{StaticResource Button.Green.Style}" Click="OperandInput"/>
+        <Button Grid.Row="6" Grid.Column="2" Content="3" Style="{StaticResource Button.Green.Style}" Click="OperandInput"/>
+        <Button Grid.Row="6" Grid.Column="3" Content="+" Style="{StaticResource Button.Green.Style}" Click ="SignInput"/>
+        <Button Grid.Row="7" Content="." Style="{StaticResource Button.Blue.Style}" Click ="SignInput"/>
+        <Button Grid.Row="7" Grid.Column="1" Content="0" Style="{StaticResource Button.Blue.Style}" Click="OperandInput"/>
+        <Button Grid.Row="7" Grid.Column="2" Content="=" Grid.ColumnSpan="2" Style="{StaticResource Button.Blue.Style}" Click="ResultInput"  />
         </Grid>
 </Window>
