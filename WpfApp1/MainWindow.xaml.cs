@@ -21,6 +21,9 @@ namespace WpfApp1
         {
             InitializeComponent();
         }
+        bool _hasError = false;
+        bool _isCalculationDone = false;
+
         private void Connect(string dictionary)
         {
             Uri uri = new Uri(dictionary, UriKind.Relative);
@@ -28,6 +31,8 @@ namespace WpfApp1
             if (Application.Current.Resources.MergedDictionaries.Count > 1) Application.Current.Resources.MergedDictionaries.RemoveAt(Application.Current.Resources.MergedDictionaries.Count - 1);
             Application.Current.Resources.MergedDictionaries.Add(res);
         }
+
+
         private void LightRB_OnChecked(object sender, RoutedEventArgs e)
         {
             Connect("Light.xaml");
@@ -77,10 +82,20 @@ namespace WpfApp1
             }
         }
 
-        private void ResultC(object sender, RoutedEventArgs e)
+        private void ClearAll(object sender, RoutedEventArgs e)
         {
-            Operand.Text = "";
-            Result.Text = "";
+            _isCalculationDone = _hasError = false;
+            Result.Text = null;
+            Clear(sender, e);
+            
         }
+        private void Clear(object sender, RoutedEventArgs e) => Operand.Text = "0";
+
+        private void PointInput(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        
     }
 }
